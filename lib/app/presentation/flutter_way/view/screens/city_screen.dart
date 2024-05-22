@@ -1,19 +1,15 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_project_09/constants.dart';
+import 'package:flutter_project_09/app/presentation/flutter_way/business_logic/business_logic.dart';
+import 'package:flutter_project_09/common/contants/text_styles/app_text_styles.dart';
 
-class CityView extends StatefulWidget {
-  const CityView({super.key});
+class CityScreen extends StatefulWidget {
+  const CityScreen({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _CityViewState createState() => _CityViewState();
+  _CityScreenState createState() => _CityScreenState();
 }
 
-class _CityViewState extends State<CityView> {
-  String? text;
-
+class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +28,7 @@ class _CityViewState extends State<CityView> {
                 alignment: Alignment.topLeft,
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pop(context, text);
+                    Navigator.pop(context, true);
                   },
                   child: const Icon(
                     Icons.arrow_back_ios,
@@ -46,15 +42,11 @@ class _CityViewState extends State<CityView> {
                 padding: const EdgeInsets.symmetric(horizontal: 18.0),
                 child: TextFormField(
                   onChanged: (String value) {
-                    log('onChanged: $value');
+                    businessLogic.typeCity(value);
 
-                    setState(() {
-                      text = value;
-                    });
-
-                    log('onChanged.text: $text');
+                    setState(() {});
                   },
-                  style: kTextFormFieldTextStyle,
+                  style: AppTextStyles.kTextFormFieldTextStyle,
                   decoration: InputDecoration(
                     focusedBorder: const OutlineInputBorder(
                       borderSide: BorderSide(
@@ -69,16 +61,18 @@ class _CityViewState extends State<CityView> {
                     ),
                     border: const OutlineInputBorder(),
                     hintText: 'Enter a search term',
-                    hintStyle: kTextFormFieldTextStyle,
+                    hintStyle: AppTextStyles.kTextFormFieldTextStyle,
                   ),
                 ),
               ),
               const SizedBox(height: 32),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context, true);
+                },
                 child: const Text(
                   'Get Weather',
-                  style: kButtonTextStyle,
+                  style: AppTextStyles.kButtonTextStyle,
                 ),
               ),
             ],

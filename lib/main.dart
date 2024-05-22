@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_project_09/home_screen.dart';
+import 'package:flutter_project_09/app/presentation/flutter_way/view/screens/weather_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,14 +16,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const HomeScreen(),
+      home: const WeatherScreen(),
     );
   }
 }
-
-
-/// Native (nativ, netiv)
-/// Android -> Java, Kotlin
-/// iOS -> Swift, objective C
-/// native features
-/// flutter plugin
